@@ -1,0 +1,27 @@
+import React from 'react';
+import {createAppContainer} from 'react-navigation';
+import {createDrawerNavigator} from 'react-navigation-drawer';
+import CustomDrawerNavigator from './dNavigator/CDrawerNavigator';
+import {Home, Danhba, DsVanBan} from './../views/tablets/index';
+
+const MainNavigator = createDrawerNavigator(
+  {
+    Home: {
+      screen: Home,
+    },
+
+    Settings: {
+      screen: Danhba,
+    },
+
+    About: {
+      screen: DsVanBan,
+    },
+  },
+  {
+    contentComponent: CustomDrawerNavigator,
+  },
+);
+
+const MainApp = createAppContainer(MainNavigator);
+export default MainApp;

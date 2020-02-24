@@ -1,0 +1,35 @@
+import React from 'react';
+import {createAppContainer} from 'react-navigation';
+import {createSidebarNavigator} from './tabs';
+import {Home, Danhba, DsVanBan} from './../views/tablets/index';
+
+const sidebarNavigator = createSidebarNavigator(
+  {
+    Home: {
+      screen: Home,
+      params: {
+        icon: 'home',
+        tabName: 'Home',
+      },
+    },
+    Danhba: {
+      screen: Danhba,
+      params: {
+        icon: 'inbox',
+        tabName: 'Menu 1',
+      },
+    },
+    DsVanBan: {
+      screen: DsVanBan,
+      params: {
+        icon: 'inbox',
+        tabName: 'Menu 2',
+      },
+    },
+  },
+  {
+    initialRouteName: 'Home',
+  },
+);
+
+export default createAppContainer(sidebarNavigator);

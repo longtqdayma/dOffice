@@ -1,0 +1,164 @@
+// import React, { Component } from 'react';
+// import { StyleSheet, KeyboardAvoidingView, View, Button, Text, SafeAreaView } from 'react-native';
+// import { Input } from 'react-native-elements';
+
+// export default class Login extends Component {
+
+//   onLogin = async () => {
+//     //const { email, password } = this.state;
+//     try {
+//       //if (email.length > 0 && password.length > 0) {
+//       this.props.navigation.navigate('App');
+//       //}
+//     } catch (error) {
+//       alert(error);
+//     }
+//   }
+
+//   render() {
+//     return (
+//       <KeyboardAvoidingView
+//         style={styles.container}
+//         behavior="position"
+//         enabled>
+//         <View style={{ flex: 1 }}>
+//           <Text>fdsafkd asf;lds aklfds;afd;saf l;dsafl;sdl;fdl;s</Text>
+//           <Input></Input>
+//           <Button title='Login' onPress={this.onLogin} />
+//         </View>
+//       </KeyboardAvoidingView>
+//     );
+//   }
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: 'transparent',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// });
+
+import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  ImageBackground,
+  SafeAreaView
+} from 'react-native';
+
+export default class App extends React.Component {
+  state = {
+    email: '',
+    password: '',
+  };
+
+  onLogin = async () => {
+    //const { email, password } = this.state;
+    try {
+      //if (email.length > 0 && password.length > 0) {
+      this.props.navigation.navigate('App');
+      //}
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <ImageBackground style={styles.imageStyle}
+          resizeMode="cover"
+          source={require('../assets/img/image-background.jpg')}>
+          <Text style={styles.logo}>d-Office</Text>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.inputText}
+              placeholder="Email..."
+              placeholderTextColor="#003f5c"
+              onChangeText={text => this.setState({email: text})}
+            />
+          </View>
+          <View style={styles.inputView}>
+            <TextInput
+              secureTextEntry
+              style={styles.inputText}
+              placeholder="Password..."
+              placeholderTextColor="#003f5c"
+              onChangeText={text => this.setState({password: text})}
+            />
+          </View>
+
+          {/* <TouchableOpacity>
+            <Text style={styles.forgot}>Forgot Password?</Text>
+          </TouchableOpacity> */}
+          <TouchableOpacity style={styles.loginBtn} onPress={this.onLogin}>
+            <Text style={styles.loginText}>LOGIN</Text>
+          </TouchableOpacity>
+          {/* <TouchableOpacity>
+            <Text style={styles.loginText}>Signup</Text>
+          </TouchableOpacity> */}
+        </ImageBackground>
+      </SafeAreaView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  imageStyle: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
+   
+  },
+  logo: {
+    fontWeight: 'bold',
+    fontSize: 50,
+    color: '#fb5b5a',
+    marginBottom: 40,
+  },
+  inputView: {
+    width: '80%',
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderRadius: 25,
+    height: 50,
+    marginBottom: 20,
+    justifyContent: 'center',
+    padding: 20,
+    borderColor: 'white',
+  },
+  inputText: {
+    height: 50,
+    color: 'white',
+  },
+  forgot: {
+    color: 'white',
+    fontSize: 11,
+  },
+  loginBtn: {
+    width: '80%',
+    backgroundColor: '#fb5b5a',
+    borderRadius: 25,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 40,
+    marginBottom: 10,
+  },
+  loginText: {
+    color: 'white',
+  },
+});

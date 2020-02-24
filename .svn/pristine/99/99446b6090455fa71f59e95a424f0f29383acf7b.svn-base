@@ -1,0 +1,18 @@
+import {default as Ant} from 'react-native-vector-icons/AntDesign';
+import React from 'react';
+import {View} from 'react-native';
+
+import styles from './styles';
+
+const CustomHeader = ({navigation}) => (
+  <View style={[styles.container]}>
+    <Ant
+      name="md-home"
+      size={32}
+      color="black"
+      onPress={() => navigation.openDrawer()}
+    />
+  </View>
+);
+
+export default CustomHeader;

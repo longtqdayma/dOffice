@@ -1,0 +1,48 @@
+import {default as Ant} from 'react-native-vector-icons/AntDesign';
+import React from 'react';
+import {createAppContainer} from 'react-navigation';
+import {createDrawerNavigator} from 'react-navigation-drawer';
+import CustomDrawerNavigator from './components/CustomDrawerNavigator';
+import Home from './views/Home';
+import Settings from './views/Settings';
+import About from './views/About';
+
+const MainNavigator = createDrawerNavigator(
+  {
+    Home: {
+      navigationOptions: {
+        drawerIcon: ({tintColor}) => (
+          <Ant name="home" size={40} color={'#565c58'} />
+        ),
+        drawerLabel: 'Home',
+      },
+      screen: Home,
+    },
+
+    Settings: {
+      navigationOptions: {
+        drawerIcon: ({tintColor}) => (
+          <Ant name="home" size={40} color={'#565c58'} />
+        ),
+        drawerLabel: 'Settings',
+      },
+      screen: Settings,
+    },
+
+    About: {
+      navigationOptions: {
+        drawerIcon: ({tintColor}) => (
+          <Ant name="home" size={40} color={'#565c58'} />
+        ),
+        drawerLabel: 'About',
+      },
+      screen: About,
+    },
+  },
+  {
+    contentComponent: CustomDrawerNavigator,
+  },
+);
+
+const MainApp = createAppContainer(MainNavigator);
+export default MainApp;

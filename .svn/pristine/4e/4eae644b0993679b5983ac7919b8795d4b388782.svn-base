@@ -1,0 +1,41 @@
+import React, { Component } from 'react';
+import { StyleSheet, KeyboardAvoidingView, View, Button, Text, SafeAreaView } from 'react-native';
+import { Input } from 'react-native-elements';
+
+export default class Login extends Component {
+
+  onLogin = async () => {
+    //const { email, password } = this.state;
+    try {
+      //if (email.length > 0 && password.length > 0) {
+      this.props.navigation.navigate('App');
+      //}
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  render() {
+    return (
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior="position"
+        enabled>
+        <View style={{ flex: 1 }}>
+          <Text>fdsafkd asf;lds aklfds;afd;saf l;dsafl;sdl;fdl;s</Text>
+          <Input></Input>
+          <Button title='Login' onPress={this.onLogin} />
+        </View>
+      </KeyboardAvoidingView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

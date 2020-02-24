@@ -1,0 +1,20 @@
+import React from 'react';
+import {StyleSheet, SafeAreaView, Text, View} from 'react-native';
+import AppContainer from './src/routers/AppContainer';
+import MainApp from './src/mobile/MainApp';
+import DeviceInfo from 'react-native-device-info';
+//import {Main} from './src/mobile/main';
+export default function App() {
+  return (
+    <SafeAreaView style={styles.container}>
+      {DeviceInfo.isTablet() ? <AppContainer /> : <MainApp />}
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'red',
+  },
+});
